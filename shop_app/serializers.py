@@ -68,3 +68,34 @@ class CustomerCreateUpdateSerializer(serializers.ModelSerializer):
         if not re.match(r'^\d{10,15}$', value):
             raise serializers.ValidationError('Phone number must be 10-15 digits')
         return value
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    customer = CustomerSerializer(read_only=True)
+
+    class Meta:
+        model = Order
+        fields = '__all__'
+        read_only_fields = ['order_date']
+
+
+class OrderCreateUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = '__all__'
+        read_only_fields = ['order_date']
+
+
+class OrderItemSerializer(serializers.ModelSerializer):
+    product = ProductDetailSerializer(read_only=True)
+    order = OrderSerializer(read_only=True)
+
+    class Meta:
+        model = OrderItem
+        fields = '__all__'
+
+
+class OrderItemCreateUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderItem
+        fields = '__all__'
