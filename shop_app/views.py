@@ -1,5 +1,10 @@
 from django.shortcuts import render
 from rest_framework import viewsets, generics
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from shop_app.models import *
 from shop_app.serializers import *
 from django_filters.rest_framework import DjangoFilterBackend
@@ -74,3 +79,11 @@ class OrderItemViewSet(viewsets.ModelViewSet):
         if self.request.method == 'GET':
             return OrderItemSerializer
         return OrderItemCreateUpdateSerializer
+
+
+class ProtectedDataView(APIView):
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated, IsAdminUser]
+
+    def get(self, request):
+        return Response({"message": "Hello, authenticated user!", "user": request.user.username})

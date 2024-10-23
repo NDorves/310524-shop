@@ -15,4 +15,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('product-detail/', ProductDetailListCreateView.as_view(), name='product-detail'),
     path('product-detail/<int:pk>/', ProductDetailListCreateView.as_view(), name='product-detail'),
+    path('protected/', ProtectedDataView.as_view(), name='protected-data'),
 ]
