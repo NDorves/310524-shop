@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets, generics
-from rest_framework.authentication import BasicAuthentication
+from rest_framework.authentication import BasicAuthentication, TokenAuthentication
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -82,8 +82,8 @@ class OrderItemViewSet(viewsets.ModelViewSet):
 
 
 class ProtectedDataView(APIView):
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated, IsAdminUser]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request):
         return Response({"message": "Hello, authenticated user!", "user": request.user.username})
