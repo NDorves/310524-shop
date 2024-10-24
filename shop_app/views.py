@@ -92,6 +92,32 @@ class ProtectedDataView(APIView):
         return Response({"message": "Hello, authenticated user!", "user": request.user.username})
 
 
+def set_jwt_cookies(response, user):
+    refresh = RefreshToken.for_user(user)
+    access_token = refresh.access_token
+
+    # Используем exp для установки времени истечения куки
+    access_expiry = datetime.utcfromtimestamp(access_token['exp'])
+    refresh_expiry = datetime.utcfromtimestamp(refresh['exp'])
+
+    response.set_cookie(
+        key='access_token',
+        value=str(access_token),
+        httponly=True,
+        secure=False,  # Используйте True для HTTPS
+        samesite='Lax',
+        expires=access_expiry
+    )
+    response.set_cookie(
+        key='refresh_token',
+        value=str(refresh),
+        httponly=True,
+        secure=False,
+        samesite='Lax',
+        expires=refresh_expiry
+    )
+
+
 class LoginView(APIView):
     permission_classes = [AllowAny]
 
@@ -101,30 +127,8 @@ class LoginView(APIView):
         user = authenticate(request, username=username, password=password)
 
         if user:
-            refresh = RefreshToken.for_user(user)
-            access_token = refresh.access_token
-
-            # Используем exp для установки времени истечения куки
-            access_expiry = datetime.utcfromtimestamp(access_token['exp'])
-            refresh_expiry = datetime.utcfromtimestamp(refresh['exp'])
-
             response = Response(status=status.HTTP_200_OK)
-            response.set_cookie(
-                key='access_token',
-                value=str(access_token),
-                httponly=True,
-                secure=False,  # Используйте True для HTTPS
-                samesite='Lax',
-                expires=access_expiry
-            )
-            response.set_cookie(
-                key='refresh_token',
-                value=str(refresh),
-                httponly=True,
-                secure=False,
-                samesite='Lax',
-                expires=refresh_expiry
-            )
+            set_jwt_cookies(response, user)
             return response
         else:
             return Response({"detail": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
@@ -136,3 +140,22 @@ class LogoutView(APIView):
         response.delete_cookie('access_token')
         response.delete_cookie('refresh_token')
         return response
+
+
+class RegisterView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = RegisterSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            response = Response({
+                'user': {
+                    'username': user.username,
+                    'email': user.email
+                }
+            }, status=status.HTTP_201_CREATED)
+            set_jwt_cookies(response, user)
+            return response
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
