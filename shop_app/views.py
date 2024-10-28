@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
+from shop_app.permissions import IsOwnerOrReadOnly, IsAdminOrOwner
 from shop_app.serializers import *
 
 
@@ -25,7 +26,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     filter_backends = (DjangoFilterBackend,)
     filterset_fields = ('category', 'price')
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, IsAdminOrOwner)
 
     def get_serializer_class(self):
         if self.request.method == 'GET':
