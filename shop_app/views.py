@@ -1,17 +1,14 @@
 from datetime import datetime
 
 from django.contrib.auth import authenticate
-from django.shortcuts import render
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, generics, status
-from rest_framework.authentication import BasicAuthentication, TokenAuthentication
 from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from shop_app.models import *
 from shop_app.serializers import *
-from django_filters.rest_framework import DjangoFilterBackend
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
@@ -28,11 +25,15 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     filter_backends = (DjangoFilterBackend,)
     filterset_fields = ('category', 'price')
+    permission_classes = (IsAuthenticated,)
 
     def get_serializer_class(self):
         if self.request.method == 'GET':
             return ProductSerializer
         return ProductCreateUpdateSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 
 class ProductDetailListCreateView(generics.ListCreateAPIView):
@@ -159,3 +160,10 @@ class RegisterView(APIView):
             return response
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class PrivateView(APIView):
+    permission_classes = [IsAdminUser]
+
+    def get(self, request):
+        return Response({"message": f"Hello, Admin! {request.user.username}!"})

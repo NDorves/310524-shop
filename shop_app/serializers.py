@@ -1,7 +1,5 @@
 import re
-
 from django.contrib.auth.models import User
-
 from shop_app.models import *
 from rest_framework import serializers
 
@@ -16,6 +14,7 @@ class SupplierSerializer(serializers.ModelSerializer):
     class Meta:
         model = Supplier
         fields = '__all__'
+        read_only_fields = ['owner']
 
 
 class ProductSerializer(serializers.ModelSerializer):
