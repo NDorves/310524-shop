@@ -43,3 +43,31 @@ INFO:django.utils.autoreload:D:\dev\django_shop_app-main\shop_app\signals.py cha
             WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
             ORDER BY name; args=None; alias=default
 2024-10-29 16:17:36,659 - django.db.backends - DEBUG - (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2024-10-29 16:23:48,403 - django.utils.autoreload - INFO - D:\dev\django_shop_app-main\config\settings.py changed, reloading.
+2024-10-29 16:23:49,269 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2024-10-29 16:23:49,419 - django.db.backends - DEBUG - (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+2024-10-29 16:23:49,422 - django.db.backends - DEBUG - (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2024-10-29 16:23:54,373 - django.utils.autoreload - INFO - D:\dev\django_shop_app-main\config\settings.py changed, reloading.
+2024-10-29 16:24:00,418 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2024-10-29 16:24:00,563 - django.db.backends - DEBUG - (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+2024-10-29 16:24:00,566 - django.db.backends - DEBUG - (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2024-10-29 16:25:14,034 - django.utils.autoreload - INFO - D:\dev\django_shop_app-main\config\urls.py changed, reloading.
+2024-10-29 16:25:14,951 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2024-10-29 16:25:15,116 - django.db.backends - DEBUG - (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+2024-10-29 16:25:15,119 - django.db.backends - DEBUG - (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2024-10-29 16:25:47,682 - django.utils.autoreload - INFO - D:\dev\django_shop_app-main\config\urls.py changed, reloading.
+2024-10-29 16:25:48,554 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2024-10-29 16:25:48,712 - django.db.backends - DEBUG - (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+2024-10-29 16:25:48,715 - django.db.backends - DEBUG - (0.015) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default

@@ -46,9 +46,7 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
-
-    #local
-
+    'drf_yasg',
     'shop_app.apps.ShopAppConfig',
 ]
 
