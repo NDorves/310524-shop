@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+import os
 from datetime import timedelta
 from pathlib import Path
 from environ import Env
@@ -157,9 +158,9 @@ REST_FRAMEWORK = {
         # 'rest_framework.authentication.BasicAuthentication',
         # другие классы аутентификации (если есть)
     ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ],
 }
 
 SIMPLE_JWT = {
@@ -170,4 +171,34 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'your_email@gmail.com'
+# EMAIL_HOST_PASSWORD = 'your_password'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'db.log'),  # Путь к файлу логов
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+        },
+    },
+}

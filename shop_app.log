@@ -1,0 +1,45 @@
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:django.db.backends:(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG:django.db.backends:(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+INFO:django.utils.autoreload:D:\dev\django_shop_app-main\shop_app\signals.py changed, reloading.
+INFO:django.utils.autoreload:Watching for file changes with StatReloader
+DEBUG:django.db.backends:(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG:django.db.backends:(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+INFO:django.utils.autoreload:D:\dev\django_shop_app-main\shop_app\signals.py changed, reloading.
+2024-10-29 16:14:58,759 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2024-10-29 16:14:58,939 - django.db.backends - DEBUG - (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+2024-10-29 16:14:58,942 - django.db.backends - DEBUG - (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2024-10-29 16:15:27,036 - django.db.backends - DEBUG - (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+2024-10-29 16:15:27,038 - django.db.backends - DEBUG - (0.000) SELECT "shop_app_product"."id", "shop_app_product"."name", "shop_app_product"."category_id", "shop_app_product"."supplier_id", "shop_app_product"."price", "shop_app_product"."quantity", "shop_app_product"."article", "shop_app_product"."available", "shop_app_product"."owner_id", "shop_app_product"."updated_at" FROM "shop_app_product" WHERE "shop_app_product"."id" = 68 LIMIT 21; args=(68,); alias=default
+2024-10-29 16:15:27,039 - django.db.backends - DEBUG - (0.000) SELECT "shop_app_category"."id", "shop_app_category"."name" FROM "shop_app_category" WHERE "shop_app_category"."id" = 9 LIMIT 21; args=(9,); alias=default
+2024-10-29 16:15:27,040 - django.db.backends - DEBUG - (0.000) SELECT "shop_app_supplier"."id", "shop_app_supplier"."name", "shop_app_supplier"."contact_email", "shop_app_supplier"."phone_number" FROM "shop_app_supplier" WHERE "shop_app_supplier"."id" = 4 LIMIT 21; args=(4,); alias=default
+2024-10-29 16:15:27,059 - django.db.backends - DEBUG - (0.000) SELECT "shop_app_category"."id", "shop_app_category"."name" FROM "shop_app_category" ORDER BY "shop_app_category"."name" ASC LIMIT 1000; args=(); alias=default
+2024-10-29 16:15:27,061 - django.db.backends - DEBUG - (0.000) SELECT "shop_app_supplier"."id", "shop_app_supplier"."name", "shop_app_supplier"."contact_email", "shop_app_supplier"."phone_number" FROM "shop_app_supplier" LIMIT 1000; args=(); alias=default
+2024-10-29 16:15:27,064 - django.db.backends - DEBUG - (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" LIMIT 1000; args=(); alias=default
+2024-10-29 16:15:31,088 - django.db.backends - DEBUG - (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+2024-10-29 16:15:31,089 - django.db.backends - DEBUG - (0.000) SELECT "shop_app_product"."id", "shop_app_product"."name", "shop_app_product"."category_id", "shop_app_product"."supplier_id", "shop_app_product"."price", "shop_app_product"."quantity", "shop_app_product"."article", "shop_app_product"."available", "shop_app_product"."owner_id", "shop_app_product"."updated_at" FROM "shop_app_product" WHERE "shop_app_product"."id" = 68 LIMIT 21; args=(68,); alias=default
+2024-10-29 16:15:31,090 - django.db.backends - DEBUG - (0.000) BEGIN; args=None; alias=default
+2024-10-29 16:15:31,090 - django.db.backends - DEBUG - (0.000) DELETE FROM "shop_app_productdetail" WHERE "shop_app_productdetail"."product_id" IN (68); args=(68,); alias=default
+2024-10-29 16:15:31,090 - django.db.backends - DEBUG - (0.000) DELETE FROM "shop_app_orderitem" WHERE "shop_app_orderitem"."product_id" IN (68); args=(68,); alias=default
+2024-10-29 16:15:31,091 - django.db.backends - DEBUG - (0.000) DELETE FROM "shop_app_product" WHERE "shop_app_product"."id" IN (68); args=(68,); alias=default
+2024-10-29 16:15:31,091 - shop_app.signals - INFO - Product deleted: 68) asdf
+2024-10-29 16:15:31,094 - django.db.backends - DEBUG - (0.000) COMMIT; args=None; alias=default
+2024-10-29 16:15:31,098 - django.db.backends - DEBUG - (0.000) SELECT "shop_app_category"."id", "shop_app_category"."name" FROM "shop_app_category" ORDER BY "shop_app_category"."name" ASC LIMIT 1000; args=(); alias=default
+2024-10-29 16:15:31,100 - django.db.backends - DEBUG - (0.000) SELECT "shop_app_supplier"."id", "shop_app_supplier"."name", "shop_app_supplier"."contact_email", "shop_app_supplier"."phone_number" FROM "shop_app_supplier" LIMIT 1000; args=(); alias=default
+2024-10-29 16:15:31,103 - django.db.backends - DEBUG - (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" LIMIT 1000; args=(); alias=default
+2024-10-29 16:17:35,728 - django.utils.autoreload - INFO - D:\dev\django_shop_app-main\shop_app\signals.py changed, reloading.
+2024-10-29 16:17:36,489 - django.utils.autoreload - INFO - Watching for file changes with StatReloader
+2024-10-29 16:17:36,656 - django.db.backends - DEBUG - (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+2024-10-29 16:17:36,659 - django.db.backends - DEBUG - (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default

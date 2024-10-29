@@ -1,0 +1,74 @@
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "shop_app_product"."id", "shop_app_product"."name", "shop_app_product"."category_id", "shop_app_product"."supplier_id", "shop_app_product"."price", "shop_app_product"."quantity", "shop_app_product"."article", "shop_app_product"."available", "shop_app_product"."owner_id", "shop_app_product"."updated_at" FROM "shop_app_product" WHERE "shop_app_product"."id" = 69 LIMIT 21; args=(69,); alias=default
+(0.000) SELECT "shop_app_category"."id", "shop_app_category"."name" FROM "shop_app_category" WHERE "shop_app_category"."id" = 9 LIMIT 21; args=(9,); alias=default
+(0.000) SELECT "shop_app_supplier"."id", "shop_app_supplier"."name", "shop_app_supplier"."contact_email", "shop_app_supplier"."phone_number" FROM "shop_app_supplier" WHERE "shop_app_supplier"."id" = 4 LIMIT 21; args=(4,); alias=default
+(0.000) SELECT "shop_app_category"."id", "shop_app_category"."name" FROM "shop_app_category" ORDER BY "shop_app_category"."name" ASC LIMIT 1000; args=(); alias=default
+(0.000) SELECT "shop_app_supplier"."id", "shop_app_supplier"."name", "shop_app_supplier"."contact_email", "shop_app_supplier"."phone_number" FROM "shop_app_supplier" LIMIT 1000; args=(); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" LIMIT 1000; args=(); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "shop_app_product"."id", "shop_app_product"."name", "shop_app_product"."category_id", "shop_app_product"."supplier_id", "shop_app_product"."price", "shop_app_product"."quantity", "shop_app_product"."article", "shop_app_product"."available", "shop_app_product"."owner_id", "shop_app_product"."updated_at" FROM "shop_app_product" WHERE "shop_app_product"."id" = 69 LIMIT 21; args=(69,); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) DELETE FROM "shop_app_productdetail" WHERE "shop_app_productdetail"."product_id" IN (69); args=(69,); alias=default
+(0.000) DELETE FROM "shop_app_orderitem" WHERE "shop_app_orderitem"."product_id" IN (69); args=(69,); alias=default
+(0.000) DELETE FROM "shop_app_product" WHERE "shop_app_product"."id" IN (69); args=(69,); alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) SELECT "shop_app_category"."id", "shop_app_category"."name" FROM "shop_app_category" ORDER BY "shop_app_category"."name" ASC LIMIT 1000; args=(); alias=default
+(0.000) SELECT "shop_app_supplier"."id", "shop_app_supplier"."name", "shop_app_supplier"."contact_email", "shop_app_supplier"."phone_number" FROM "shop_app_supplier" LIMIT 1000; args=(); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" LIMIT 1000; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "shop_app_product"."id", "shop_app_product"."name", "shop_app_product"."category_id", "shop_app_product"."supplier_id", "shop_app_product"."price", "shop_app_product"."quantity", "shop_app_product"."article", "shop_app_product"."available", "shop_app_product"."owner_id", "shop_app_product"."updated_at" FROM "shop_app_product" WHERE "shop_app_product"."id" = 68 LIMIT 21; args=(68,); alias=default
+(0.000) SELECT "shop_app_category"."id", "shop_app_category"."name" FROM "shop_app_category" WHERE "shop_app_category"."id" = 9 LIMIT 21; args=(9,); alias=default
+(0.000) SELECT "shop_app_supplier"."id", "shop_app_supplier"."name", "shop_app_supplier"."contact_email", "shop_app_supplier"."phone_number" FROM "shop_app_supplier" WHERE "shop_app_supplier"."id" = 4 LIMIT 21; args=(4,); alias=default
+(0.000) SELECT "shop_app_category"."id", "shop_app_category"."name" FROM "shop_app_category" ORDER BY "shop_app_category"."name" ASC LIMIT 1000; args=(); alias=default
+(0.000) SELECT "shop_app_supplier"."id", "shop_app_supplier"."name", "shop_app_supplier"."contact_email", "shop_app_supplier"."phone_number" FROM "shop_app_supplier" LIMIT 1000; args=(); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" LIMIT 1000; args=(); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "shop_app_product"."id", "shop_app_product"."name", "shop_app_product"."category_id", "shop_app_product"."supplier_id", "shop_app_product"."price", "shop_app_product"."quantity", "shop_app_product"."article", "shop_app_product"."available", "shop_app_product"."owner_id", "shop_app_product"."updated_at" FROM "shop_app_product" WHERE "shop_app_product"."id" = 68 LIMIT 21; args=(68,); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) DELETE FROM "shop_app_productdetail" WHERE "shop_app_productdetail"."product_id" IN (68); args=(68,); alias=default
+(0.000) DELETE FROM "shop_app_orderitem" WHERE "shop_app_orderitem"."product_id" IN (68); args=(68,); alias=default
+(0.000) DELETE FROM "shop_app_product" WHERE "shop_app_product"."id" IN (68); args=(68,); alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.000) SELECT "shop_app_category"."id", "shop_app_category"."name" FROM "shop_app_category" ORDER BY "shop_app_category"."name" ASC LIMIT 1000; args=(); alias=default
+(0.000) SELECT "shop_app_supplier"."id", "shop_app_supplier"."name", "shop_app_supplier"."contact_email", "shop_app_supplier"."phone_number" FROM "shop_app_supplier" LIMIT 1000; args=(); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" LIMIT 1000; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default

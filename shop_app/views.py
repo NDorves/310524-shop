@@ -3,7 +3,7 @@ from datetime import datetime
 from django.contrib.auth import authenticate
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, generics, status
-from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
+from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny, DjangoModelPermissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -15,6 +15,7 @@ from shop_app.serializers import *
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    permission_classes = [DjangoModelPermissions]
 
 
 class SupplierViewSet(viewsets.ModelViewSet):
