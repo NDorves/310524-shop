@@ -42,11 +42,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+
+    #3-party
+    'rest_framework_simplejwt',
     'rest_framework',
     'django_filters',
-    'rest_framework.authtoken',
-    'rest_framework_simplejwt',
     'drf_yasg',
+
+
+    #local
+
     'shop_app.apps.ShopAppConfig',
 ]
 
@@ -58,7 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'shop_app.middleware.JWTAuthenticationMiddleware',
+    'shop_app.middleware.JWTAuthenticationMiddleware'
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -147,19 +153,24 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-        # 'rest_framework.authentication.TokenAuthentication',
-        # 'rest_framework.authentication.BasicAuthentication',
-        # другие классы аутентификации (если есть)
-    ],
-    # 'DEFAULT_PERMISSION_CLASSES': [
-    #     'rest_framework.permissions.IsAuthenticated',
-    # ],
-}
+# Задание 9 Глобальная пагинация
+#  Настройте глобальную пагинацию для всех представлений проекта, используя класс
+# PageNumberPagination. Пагинация должна отображать 10 записей на страницу по
+# умолчанию
+
+REST_FRAMEWORK = {'DEFAULT_PAGINATION_CLASS':
+                  'rest_framework.pagination.PageNumberPagination',
+                  'PAGE_SIZE': 10,
+
+                  'DEFAULT_AUTHENTICATION_CLASSES': [
+                      'rest_framework_simplejwt.authentication.JWTAuthentication',
+                      # 'rest_framework.authentication.BasicAuthentication',
+                    #      # другие классы аутентификации (если есть)
+                       ],
+                    # 'DEFAULT_PERMISSION_CLASSES': [
+                    # 'rest_framework.permissions.IsAuthenticated', ],
+                  }
+
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
@@ -168,16 +179,14 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': True,
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'your_email@gmail.com'
-# EMAIL_HOST_PASSWORD = 'your_password'
-
+# EMAIL_HOST = env('EMAIL_HOST')
+# EMAIL_PORT = env('EMAIL_PORT')
+# EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+# EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 LOGGING = {
     'version': 1,

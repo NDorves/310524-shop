@@ -13,6 +13,7 @@ logging.basicConfig(filename='shop_app.log',
                     level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
+
 @receiver(post_save, sender=Product)
 def product_saved(sender, instance, created, **kwargs):
     if created:
