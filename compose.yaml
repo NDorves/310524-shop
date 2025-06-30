@@ -2,7 +2,7 @@ services:
   app:
     build:
       dockerfile: ./docker/python/Dockerfile
-    command: sh -c ./run.sh
+    command: sh run.sh
     ports:
       - 8000:8000
     working_dir: /usr/src/app
